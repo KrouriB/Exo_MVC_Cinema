@@ -17,10 +17,10 @@ if(isset($_GET["action"])){
         case "listActeurs" : $ctrlCinema->listActeurs(); break;
         case "listRoles" : $ctrlCinema->listRoles(); break;
         case "listReals" : $ctrlCinema->listReals(); break;
-        case "detActeurs" : $ctrlCinema->detActeurs(); break;
-        case "detReals" : $ctrlCinema->detReals(); break;
-        case "detFilms" : $ctrlCinema->detFilms(); break;
-        case "detRoles" : $ctrlCinema->detRoles(); break;
+        case "detActeurs" : $ctrlCinema->detActeurs($_GET['id']); break;
+        case "detReals" : $ctrlCinema->detReals($_GET['id']); break;
+        case "detFilms" : $ctrlCinema->detFilms($_GET['id']); break;
+        case "detRoles" : $ctrlCinema->detRoles($_GET['id']); break;
     }
 }else {
     $ctrlCinema->listFilms();
