@@ -2,6 +2,8 @@
 ob_start();
 ?>
 
+<p>Il y a <?= $requete->rowCount() ?> realisateurs</p>
+
 <table>
     <thead>
         <tr>
