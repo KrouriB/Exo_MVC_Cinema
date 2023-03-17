@@ -59,10 +59,10 @@ class CinemaController {
 
     // commande detail
 
-    public function detActeur($id){
+    public function detActeurs($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur
+            SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur ,  DATE_FORMAT(a.date_naissance_acteur, '%d/%m/%Y' ) AS laDate
             FROM acteur a
             INNER JOIN casting c ON a.id_acteur = c.id_acteur
             INNER JOIN personne p ON a.id_personne = p.id_personne
@@ -77,7 +77,7 @@ class CinemaController {
     public function detReals($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal , DATE_FORMAT(f.date_sortie_film, '%e/%c/%Y' ) AS laDate
+            SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal , DATE_FORMAT(f.date_sortie_film, '%e/%m/%Y' ) AS laDate
             FROM realisateur r
             INNER JOIN film f ON r.id_realisateur = f.id_realisateur
             INNER JOIN personne p ON r.id_personne = p.id_personne
