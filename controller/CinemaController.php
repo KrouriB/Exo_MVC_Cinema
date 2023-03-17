@@ -77,11 +77,12 @@ class CinemaController {
     public function detReals($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal
+            SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal , DATE_FORMAT(f.date_sortie_film, '%e/%c/%Y' ) AS laDate
             FROM realisateur r
             INNER JOIN film f ON r.id_realisateur = f.id_realisateur
             INNER JOIN personne p ON r.id_personne = p.id_personne
             WHERE r.id_realisateur = :id
+            ORDER BY f.date_sortie_film
         ");
         $requete->execute(["id"=>$id]);
         require "view/detailRealisateur.php";
