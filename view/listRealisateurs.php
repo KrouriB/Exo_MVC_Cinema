@@ -10,10 +10,10 @@ ob_start();
         </tr>
     </thead>
     <tbody>
-        <?php foreach($requete->fetchAll() as $role){ ?>
+        <?php foreach($requete->fetchAll() as $real){ ?>
                 <tr>
-                    <td><a href="index.php?action=detReal&id=<?= $role["id"] ?>"><?= $role["nomReal"] ?></a></td>
-                    <td><?= $role["nbLa"] ?></td>
+                    <td><a href="index.php?action=detReals&id=<?= $real["id"] ?>"><?= $real["nomReal"] ?></a></td>
+                    <td><?= $real["nbLa"] ?></td>
                 </tr>
         <?php } ?>
     </tbody>

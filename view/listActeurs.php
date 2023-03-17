@@ -14,7 +14,7 @@ ob_start();
     <tbody>
         <?php foreach($requete->fetchAll() as $acteur){ ?>
                 <tr>
-                    <td><a href="index.php?action=detActeur&id=<?= $acteur["id"] ?>"><?= $acteur["nomActeur"] ?></a></td>
+                    <td><a href="index.php?action=detActeurs&id=<?= $acteur["id"] ?>"><?= $acteur["nomActeur"] ?></a></td>
                     <td><?= $acteur["sexe"] ?></td>
                     <td><?= $acteur["date"] ?></td>
                     <td><?= $acteur["nbLa"] ?></td>
