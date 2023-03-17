@@ -62,9 +62,13 @@ class CinemaController {
     public function detActeur($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT * 
-            FROM acteur 
-            WHERE id_acteur = :id
+            SELECT *  , CONCAT(p.nom_personne,' ',p.prenom_personne) AS nomActeur
+            FROM acteur a
+            INNER JOIN casting c ON a.id_acteur = c.id_acteur
+            INNER JOIN personne p ON a.id_personne = p.id_personne
+            INNER JOIN film f ON c.id_film = f.id_film
+            INNER JOIN role r ON c.id_role = r.id_role
+            WHERE a.id_acteur = :id
         ");
         $requete->execute(["id"=>$id]);
         require "view/detailActeur.php";
@@ -73,9 +77,11 @@ class CinemaController {
     public function detReals($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT * 
-            FROM realisateur 
-            WHERE id_realisateur = :id
+            SELECT *  , CONCAT(p.nom_personne,' ',p.prenom_personne) AS nomReal
+            FROM realisateur r
+            INNER JOIN film f ON r.id_realisateur = f.id_realisateur
+            INNER JOIN personne p ON r.id_personne = p.id_personne
+            WHERE r.id_realisateur = :id
         ");
         $requete->execute(["id"=>$id]);
         require "view/detailRealisateur.php";
@@ -84,9 +90,15 @@ class CinemaController {
     public function detFilms($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT * 
-            FROM film 
-            WHERE id_film = :id
+            SELECT * , CONCAT(pr.nom_personne,' ',pr.prenom_personne) AS nomReal , CONCAT(pa.nom_personne,' ',pa.prenom_personne) AS nomActeur
+            FROM film f
+            INNER JOIN realisateur re ON f.id_realisateur = re.id_realisateur
+            INNER JOIN personne pr ON re.id_personne = pr.id_personne
+            INNER JOIN casting c ON f.id_film = c.id_film
+            INNER JOIN role ro ON c.id_role = ro.id_role
+            INNER JOIN acteur a ON c.id_acteur = a.id_acteur
+            INNER JOIN personne pa ON a.id_personne = pa.id_personne
+            WHERE f.id_film = :id
         ");
         $requete->execute(["id"=>$id]);
         require "view/detailFilm.php";
@@ -95,9 +107,13 @@ class CinemaController {
     public function detRoles($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT * 
-            FROM role
-            WHERE id_film = :id
+            SELECT *  , CONCAT(p.nom_personne,' ',p.prenom_personne) AS nomActeur
+            FROM role r
+            INNER JOIN casting c ON r.id_role = c.id_role
+            INNER JOIN acteur a ON c.id_acteur = a.id_acteur
+            INNER JOIN film f ON c.id_film = f.id_film
+            INNER JOIN personne p ON a.id_personne = p.id_personne
+            WHERE r.id_role = :id
         ");
         $requete->execute(["id"=>$id]);
         require "view/detailFilm.php";
