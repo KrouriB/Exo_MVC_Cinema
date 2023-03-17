@@ -35,20 +35,20 @@ class CinemaController {
     public function listReals(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT CONCAT(p.nom_personne,' ',p.prenom_personne) AS nomReal , COUNT(f.id_realisteur) AS nbLa ,r.id_realisteur AS id
+        SELECT CONCAT(p.nom_personne,' ',p.prenom_personne) AS nomReal , COUNT(f.id_realisateur) AS nbLa ,r.id_realisateur AS id
         FROM realisateur r
-        INNER JOIN film f ON r.id_realisteur = f.id_realisteur
+        INNER JOIN film f ON r.id_realisateur = f.id_realisateur
         INNER JOIN personne p ON r.id_personne = p.id_personne
-        GROUP BY r.id_realisteur
+        GROUP BY r.id_realisateur
         ORDER BY nbLa DESC 
         ");
-        require "view/listReals.php";
+        require "view/listRealisateurs.php";
     }
 
     public function listRoles(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-            SELECT r.nom_role , COUNT(c.id_role) AS nbLa ,e.id_role AS id
+            SELECT r.nom_role , COUNT(c.id_role) AS nbLa ,r.id_role AS id
             FROM role r
             INNER JOIN casting c ON r.id_role = c.id_role
             GROUP BY r.id_role
@@ -78,7 +78,7 @@ class CinemaController {
             WHERE id_realisateur = :id
         ");
         $requete->execute(["id"=>$id]);
-        require "view/detailRealisaeur.php";
+        require "view/detailRealisateur.php";
     }
 
     public function detFilm($id){
