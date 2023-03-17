@@ -8,7 +8,7 @@ ob_start();
     <thead>
         <tr>
             <th>Titre</th>
-            <th>Date de sortie</th>
+            <th>Année de sortie</th>
             <th>Realisateur</th>
             <th>Durée</th>
         </tr>
