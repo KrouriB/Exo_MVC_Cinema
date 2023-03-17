@@ -18,7 +18,7 @@ ob_start();
                 <tr>
                     <td><a href="index.php?action=detFilm&id=<?= $film["unFilm"] ?>"><?= $film["titre"] ?></a></td>
                     <td><?= $film["sortie"] ?></td>
-                    <td><a href="index.php?action=detReal&id=<?= $film["unReal"] ?>"><?= $film["real"] ?></a></td>
+                    <td><a href="index.php?action=detReal&id=<?= $film["unReal"] ?>"><?= $film["nomReal"] ?></a></td>
                     <td><?= $film["duree"] ?></td>
                 </tr>
         <?php } ?>
