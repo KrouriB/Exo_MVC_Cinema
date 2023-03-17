@@ -117,7 +117,7 @@ class CinemaController {
             WHERE r.id_role = :id
         ");
         $requete->execute(["id"=>$id]);
-        require "view/detailFilm.php";
+        require "view/detailRole.php";
     }
 
 }
