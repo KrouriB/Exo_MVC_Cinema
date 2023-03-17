@@ -16,9 +16,9 @@ ob_start();
     <tbody>
         <?php foreach($requete->fetchAll() as $film){ ?>
                 <tr>
-                    <td><a href=""><?= $film["titre"] ?></a></td>
+                    <td><a href="index.php?action=detFilm&id=<?= $film["unFilm"] ?>"><?= $film["titre"] ?></a></td>
                     <td><?= $film["sortie"] ?></td>
-                    <td><a href=""><?= $film["real"] ?></a></td>
+                    <td><a href="index.php?action=detReal&id=<?= $film["unReal"] ?>"><?= $film["real"] ?></a></td>
                     <td><?= $film["duree"] ?></td>
                 </tr>
         <?php } ?>
