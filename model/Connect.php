@@ -1,13 +1,13 @@
 <?php
 
-namespace Model
+namespace Model;
 
 abstract class Connect {
 
     const HOST = "localhost";
     const DB = "cinema_brice";
     const USER = "root";
-    const PASS " "
+    const PASS = null;
 
     public static function seConnecter(){
         try{
