@@ -91,7 +91,7 @@ class CinemaController {
     public function detFilms($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT * , CONCAT(pr.prenom_personne,' ',pr.nom_personne) AS nomReal , CONCAT(pa.prenom_personne,' ',pa.nom_personne) AS nomActeur
+            SELECT * , CONCAT(pr.prenom_personne,' ',pr.nom_personne) AS nomReal , CONCAT(pa.prenom_personne,' ',pa.nom_personne) AS nomActeur , DATE_FORMAT(f.date_sortie_film, '%e/%m/%Y' ) AS laDate , TIME_FORMAT(SEC_TO_TIME(f.temps_min_film*60), '%Hh%i') AS duree
             FROM film f
             INNER JOIN realisateur re ON f.id_realisateur = re.id_realisateur
             INNER JOIN personne pr ON re.id_personne = pr.id_personne
