@@ -16,7 +16,7 @@ ob_start();
                 <tr>
                     <td><a href="index.php?action=detActeur&id=<?= $acteur["id"] ?>"><?= $acteur["nomActeur"] ?></a></td>
                     <td><?= $acteur["sexe"] ?></td>
-                    <td><?= $acteur["date"] ?></a></td>
+                    <td><?= $acteur["date"] ?></td>
                     <td><?= $acteur["nbLa"] ?></td>
                 </tr>
         <?php } ?>
