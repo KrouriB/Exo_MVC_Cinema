@@ -70,7 +70,7 @@ class CinemaController {
         require "view/detailActeur.php";
     }
 
-    public function detReal($id){
+    public function detReals($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT * 
@@ -81,7 +81,7 @@ class CinemaController {
         require "view/detailRealisateur.php";
     }
 
-    public function detFilm($id){
+    public function detFilms($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT * 
@@ -92,5 +92,15 @@ class CinemaController {
         require "view/detailFilm.php";
     }
 
+    public function detRoles($id){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+            SELECT * 
+            FROM role
+            WHERE id_film = :id
+        ");
+        $requete->execute(["id"=>$id]);
+        require "view/detailFilm.php";
+    }
 
 }
