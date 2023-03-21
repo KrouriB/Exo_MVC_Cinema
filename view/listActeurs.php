@@ -7,19 +7,19 @@ ob_start();
 <table>
     <thead>
         <tr>
-            <th>Nom</th>
-            <th>Sexe</th>
-            <th>Date de Naissance</th>
-            <th>Nombre d'appartion</th>
+            <th>NOM</th>
+            <th>SEXE</th>
+            <th>DATE SE NAISSANCCE</th>
+            <th>NOMBRE D'APPARITION</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($requete->fetchAll() as $acteur){ ?>
                 <tr>
                     <td><a href="index.php?action=detActeurs&id=<?= $acteur["id"] ?>"><?= $acteur["nomActeur"] ?></a></td>
-                    <td><?= $acteur["sexe"] ?></td>
-                    <td><?= $acteur["date"] ?></td>
-                    <td><?= $acteur["nbLa"] ?></td>
+                    <td class="toCenter"><?= $acteur["sexe"] ?></td>
+                    <td class="toCenter"><?= $acteur["date"] ?></td>
+                    <td class="toCenter petit"><?= $acteur["nbLa"] ?></td>
                 </tr>
         <?php } ?>
     </tbody>

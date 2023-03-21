@@ -12,7 +12,8 @@
 
 <body>
     <header>
-        <nav class="topbar">
+        <h2>Cinélan</h2>
+        <nav id="topbar">
             <ul>
                 <li><a href="index.php?action=listFilms">Films</a></li>
                 <li><a href="index.php?action=listActeurs">Acteurs</a></li>
@@ -23,7 +24,7 @@
     </header>
     <div id="wrapper">
         <main>
-            <div id="contenu">
+            <div id="lecontenu">
                 <h1>PDO Cinema</h1>
                 <h2><?= $titre_secondaire ?></h2>
                 <?= $contenu ?>

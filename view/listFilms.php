@@ -7,19 +7,19 @@ ob_start();
 <table>
     <thead>
         <tr>
-            <th>Titre</th>
-            <th>Année de sortie</th>
-            <th>Realisateur</th>
-            <th>Durée</th>
+            <th>TITRE</th>
+            <th class="toCenter"><?= mb_strtoupper("Année de sortie") ?></th>
+            <th><?= mb_strtoupper("Réalisateur") ?></th>
+            <th class="toCenter"><?= mb_strtoupper("Durée") ?></th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($requete->fetchAll() as $film){ ?>
                 <tr>
                     <td><a href="index.php?action=detFilms&id=<?= $film["unFilm"] ?>"><?= $film["titre"] ?></a></td>
-                    <td><?= $film["sortie"] ?></td>
-                    <td><a href="index.php?action=detReals&id=<?= $film["unReal"] ?>"><?= $film["nomReal"] ?></a></td>
-                    <td><?= $film["duree"] ?></td>
+                    <td class="toCenter"><?= $film["sortie"] ?></td>
+                    <td class="toCenter"><a href="index.php?action=detReals&id=<?= $film["unReal"] ?>"><?= $film["nomReal"] ?></a></td>
+                    <td class="toCenter"><?= $film["duree"] ?></td>
                 </tr>
         <?php } ?>
     </tbody>

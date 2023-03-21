@@ -4,7 +4,7 @@ $real = $requete->fetchAll();
 ?>
 
 <div class="liste"><?php foreach($real as $unReal){ ?>
-    <p><a href="index.php?action=detFilms&id=<?= $unReal['id_film'] ?>"><?= $unReal['titre_film'] ?></a> sortie le <?= $unReal['laDate'] ?></p>
+    <p class="foreach"><a href="index.php?action=detFilms&id=<?= $unReal['id_film'] ?>"><?= $unReal['titre_film'] ?></a> sortie le <?= $unReal['laDate'] ?></p>
 <?php } ?></div>
 
 <?php

@@ -4,7 +4,7 @@ $role = $requete->fetchAll();
 ?>
 
 <div class="liste"><?php foreach($role as $unRole){ ?>
-    <p>Jouer par <a href="index.php?action=detActeurs&id=<?= $unRole['id_acteur'] ?>"><?= $unRole['nomActeur'] ?></a> dans <a href="index.php?action=detFilms&id=<?= $unRole['id_film'] ?>"><?= $unRole['titre_film'] ?></a></p>
+    <p class="foreach">Jouer par <a href="index.php?action=detActeurs&id=<?= $unRole['id_acteur'] ?>"><?= $unRole['nomActeur'] ?></a> dans <a href="index.php?action=detFilms&id=<?= $unRole['id_film'] ?>"><?= $unRole['titre_film'] ?></a></p>
 <?php } ?></div>
 
 <?php
