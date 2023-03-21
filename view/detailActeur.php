@@ -5,8 +5,9 @@ $acteur = $requete->fetchAll();
 
 <p>Est un <?= strtolower($acteur[0]['sexe']) ?> né en <?= $acteur[0]['laDate'] ?></p>
 
+<p>A jouer dans :</p>
 <div class="liste"><?php foreach($acteur as $unActeur){ ?>
-    <p>A jouer dans <a href="index.php?action=detFilms&id=<?= $unActeur['id_film'] ?>"><?= $unActeur['titre_film'] ?></a> dans le role de <a href="index.php?action=detRoles&id=<?= $unActeur['id_role'] ?>"><?= $unActeur['nom_role'] ?></a></p>
+    <p class="foreach"><a href="index.php?action=detFilms&id=<?= $unActeur['id_film'] ?>"><?= $unActeur['titre_film'] ?></a> dans le role de <a href="index.php?action=detRoles&id=<?= $unActeur['id_role'] ?>"><?= $unActeur['nom_role'] ?></a></p>
 <?php } ?></div>
 
 <?php
