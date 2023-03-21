@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Top bar */
+
+header{
+    background: linear-gradient(goldenrod,rgb(114, 86, 16),black);
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+header > h2{
+    margin: 20px;
+    font-family: tenby-seven, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+#topbar ul{
+    display: flex;
+}
+
+#topbar ul li{
+    text-decoration: none;
+    list-style-type: none;
+    padding: 20px 0;
+    margin: 0 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+#topbar ul li a{
+    color: white;
+    font-family: tenby-six, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* Le wrapper commun */
+
+#wrapper{
+    background-color: rgb(41, 41, 41);
+    color: white;
+    padding: 20px 40px;
+    font-family: basic-sans, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+#lecontenu{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+/* tableau des listes */
+
+.toCenter{
+    text-align: center;
+}
+
+.petit{
+    width: 25%;
+}
+
+table, th, td {
+    border: 1px solid;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+    font-family: basic-sans, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    padding: 6px;
+}
+
+td{
+    padding: 6px 0;
+}
+
+td a{
+    color: skyblue;
+}
+
+/* info detail */
+
+.foreach a{
+    color:greenyellow;
+}
