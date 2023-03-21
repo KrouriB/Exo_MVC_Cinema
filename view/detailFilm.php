@@ -30,13 +30,33 @@ if($film[0]['note_film'] != null){
     <?= $affiche ?>
     <div id="droiteFilm">
         <?= $note ?>
-        <p>Ce film a été réaliser par <a href="index.php?action=detReals&id=<?= $film[0]['id_realisateur'] ?>"><?= $film[0]['nomReal'] ?></a> d'une durée de <?= $film[0]['duree'] ?> est sortie le <?= $film[0]['laDate'] ?></p>
+        <p class="foreach">Ce film a été réaliser par <a href="index.php?action=detReals&id=<?= $film[0]['id_realisateur'] ?>"><?= $film[0]['nomReal'] ?></a> d'une durée de <?= $film[0]['duree'] ?> est sortie le <?= $film[0]['laDate'] ?></p>
         <?= $resume ?>
     </div>
 </div>
 
+
+<div>
+    <?php   if (gettype($film[0]['libelle_genre'])=="array") { $i = count($film[0]['id_genre'])?>
+                <p>Les genres du film sont</p>
+    <?php       foreach ($film[0]['libelle_genre'] as $genre){ 
+                    $i--; ?>
+                    <?= $genre."<br>" ?>
+                    <?php if($i == 0){
+                        echo ".";
+                    }else{
+                        echo ",";
+                    }
+                }
+        }
+            else { ?>
+                <p>Le film est du genre <?= $film[0]['libelle_genre'] ?>.</p>
+    <?php   } ?>
+</div>
+
+
 <div class="liste"><?php foreach($film as $unFilm){ ?>
-    <p><a href="index.php?action=detActeurs&id=<?= $unFilm['id_acteur'] ?>"><?= $unFilm['nomActeur'] ?></a> jouant dans le role de <a href="index.php?action=detRoles&id=<?= $unFilm['id_role'] ?>"><?= $unFilm['nom_role'] ?></a></p>
+    <p class="foreach"><a href="index.php?action=detActeurs&id=<?= $unFilm['id_acteur'] ?>"><?= $unFilm['nomActeur'] ?></a> jouant dans le role de <a href="index.php?action=detRoles&id=<?= $unFilm['id_role'] ?>"><?= $unFilm['nom_role'] ?></a></p>
 <?php } ?></div>
 
 <?php
