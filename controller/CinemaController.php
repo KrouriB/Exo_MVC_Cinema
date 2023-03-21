@@ -99,6 +99,8 @@ class CinemaController {
             INNER JOIN role ro ON c.id_role = ro.id_role
             INNER JOIN acteur a ON c.id_acteur = a.id_acteur
             INNER JOIN personne pa ON a.id_personne = pa.id_personne
+            INNER JOIN genrer ger ON f.id_film = ger.id_film
+            INNER JOIN genre ge ON ger.id_genre = ge.id_genre
             WHERE f.id_film = :id
         ");
         $requete->execute(["id"=>$id]);
