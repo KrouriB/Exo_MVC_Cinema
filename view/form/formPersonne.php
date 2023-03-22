@@ -12,8 +12,8 @@ ob_start();
 
 
 <?php
-$titre = "";
-$titre_secondaire = "";
+$titre = "Formulaire Personne";
+$titre_secondaire = "Ajoutez une Personne :";
 $contenu = ob_get_clean();
 require "view/template.php";
 ?>
