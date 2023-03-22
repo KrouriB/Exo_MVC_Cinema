@@ -7,7 +7,7 @@ class CinemaController {
 
 
 
-    // Acteur
+    // Partie Acteur
 
 
 
@@ -48,8 +48,10 @@ class CinemaController {
     public function formActeur(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-        
+            SELECT p.id_personne AS id , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomPerso
+            FROM personne p
         ");
+        $requete->execute();
         require "view/form/formActeur.php";
     }
 
@@ -68,7 +70,7 @@ class CinemaController {
 
 
 
-    // Film
+    // Partie Film
 
 
 
@@ -120,6 +122,7 @@ class CinemaController {
         $requete = $pdo->prepare("
         
         ");
+        $requete->execute();
         require "view/form/formFilm.php";
     }
 
@@ -143,7 +146,7 @@ class CinemaController {
 
 
 
-    // Genre
+    // Partie Genre
 
 
 
@@ -196,7 +199,7 @@ class CinemaController {
 
 
 
-    // Realisateur
+    // Partie Realisateur
 
 
 
@@ -236,9 +239,10 @@ class CinemaController {
     public function formRealisateur(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT
-            FROM
+            SELECT p.id_personne AS id , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomPerso
+            FROM personne p
         ");
+        $requete->execute();
         require "view/form/formRealisateur.php";
     }
 
@@ -257,7 +261,7 @@ class CinemaController {
 
 
 
-    // Role
+    // Partie Role
 
 
 
@@ -313,13 +317,13 @@ class CinemaController {
     
     
     
-    // Commande uniquement formulaire
+    // Partie Commande uniquement formulaire
 
 
 
 
 
-    // hub formulaire
+    // Partie hub formulaire
 
     public function formGroup(){
         require "view/form/formGroup.php";
@@ -327,7 +331,7 @@ class CinemaController {
 
 
 
-    // Casting
+    // Partie Casting
     
 
     
@@ -336,6 +340,7 @@ class CinemaController {
         $requete = $pdo->prepare("
         
         ");
+        $requete->execute();
         require "view/form/formCasting.php";
     }
 
@@ -352,7 +357,7 @@ class CinemaController {
 
 
 
-     // Personne
+     // Partie Personne
     
 
     
