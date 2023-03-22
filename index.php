@@ -40,5 +40,5 @@ if(isset($_GET["action"])){
         case "addRole" :if(isset($_POST['submitRole'])){$ctrlCinema->formulaireRole();}break;
     }
 }else {
-    $ctrlCinema->listFilms();
+    $ctrlCinema->formGroup();
 }
