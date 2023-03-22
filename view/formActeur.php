@@ -2,6 +2,8 @@
 ob_start();
 ?>
 
+<a href="index.php?action=formPersonne">Ajoutez une Personne</a>
+
 <?php
 $titre = "";
 $titre_secondaire = "";
