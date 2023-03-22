@@ -148,3 +148,22 @@ td a{
         width: 100%;
     }
 }
+
+/* partie formulaire */
+
+#les7lien{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#les7lien a{
+    padding: 20px 0;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    color: black;
+    background: radial-gradient(goldenrod,rgb(150, 112, 17));
+    border-radius: 20px;
+    box-shadow: white 0 0 24px -6px;
+}
