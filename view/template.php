@@ -19,6 +19,7 @@
                 <li><a href="index.php?action=listActeurs">Acteurs</a></li>
                 <li><a href="index.php?action=listReals">Réalisateurs</a></li>
                 <li><a href="index.php?action=listRoles">Rôles</a></li>
+                <li><a href="index.php?action=listGenres">Genres</a></li>
             </ul>
         </nav>
     </header>
