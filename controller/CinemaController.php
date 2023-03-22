@@ -60,10 +60,10 @@ class CinemaController {
     public function listGenres(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT ge.libelle_genre , COUNT(ger.id_genre) AS nbLa 
-        FROM genrer ger
-        INNER JOIN genre ge ON ger.id_genre = ge.id_genre
-        GROUP BY ge.id_genre
+            SELECT ge.libelle_genre , COUNT(ger.id_genre) AS nbLa  ,ger.id_genre AS unGenre
+            FROM genrer ger
+            INNER JOIN genre ge ON ger.id_genre = ge.id_genre
+            GROUP BY ge.id_genre
         ");
         require "view/listGenres.php";
     }
@@ -111,6 +111,16 @@ class CinemaController {
             WHERE f.id_film = :id
         ");
         $requete->execute(["id"=>$id]);
+        $castings = $pdo->prepare("
+            SELECT * ,CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur
+            FROM casting c
+            INNER JOIN film f ON c.id_film = f.id_film
+            INNER JOIN role r ON c.id_role = r.id_role
+            INNER JOIN acteur a ON c.id_acteur = a.id_acteur
+            INNER JOIN personne p ON a.id_personne = p.id_personne
+            WHERE f.id_film = :id
+        ");
+        $castings->execute(["id"=>$id]);
         require "view/detailFilm.php";
     }
 
@@ -139,24 +149,7 @@ class CinemaController {
             WHERE ge.id_genre = :id
         ");
         $requete->execute(["id"=>$id]);
-        require "view/detailRole.php";
-    }
-
-    // requete pour detail film pour afficher le catsing 
-
-    public function listCasting($id){
-        $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("
-            SELECT * ,CONCAT(p.prenom_personne," ",p.nom_personne)
-            FROM casting c
-            INNER JOIN film f ON c.id_film = f.id_film
-            INNER JOIN role r ON c.id_role = r.id_role
-            INNER JOIN acteur a ON c.id_acteur = a.id_acteur
-            INNER JOIN personne p ON a.id_personne = p.id_personne
-            WHERE f.id_film = :id
-        ");
-        $requete->execute(["id"=>$id]);
-        require "view/detailFilm.php";
+        require "view/detailGenre.php";
     }
 
 }
