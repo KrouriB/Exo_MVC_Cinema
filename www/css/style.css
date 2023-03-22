@@ -101,3 +101,46 @@ td a{
 .foreach a{
     color:greenyellow;
 }
+
+#hautFilm{
+    display: flex;
+}
+
+#hautFilm figure{
+    width: 26%;
+    margin-right: 40px;
+}
+
+#hautFilm figure img{
+    width: 100%;
+}
+
+#droiteFilm{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#partGenre p{
+    margin-bottom: 20px;
+}
+
+#partGenre .foreach{
+    margin-bottom: 10px;
+}
+
+@media (max-width:1440px){
+    #hautFilm{
+        flex-direction: column;
+    }
+    
+    #hautFilm figure{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+
+    #droiteFilm{
+        width: 100%;
+    }
+}
