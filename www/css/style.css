@@ -66,7 +66,26 @@ header img{
     gap: 4vh;
 }
 
-/* tableau des listes */
+/* listes */
+
+.surTableau{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.surTableau p{
+    margin: 10px 0;
+}
+
+.surTableau a{
+    padding: 10px;
+    margin: 0 20px;
+    background-color: rgb(168,128,25);
+    color: white;
+    border-radius: 16px;
+}
+
+/* les tableau */
 
 .toCenter{
     text-align: center;
@@ -93,7 +112,7 @@ th{
 }
 
 td{
-    padding: 6px 0;
+    padding: 6px;
 }
 
 td a{

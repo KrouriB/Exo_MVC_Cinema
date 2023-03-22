@@ -2,7 +2,10 @@
 ob_start();
 ?>
 
-<p>Il y a <?= $requete->rowCount() ?> roles</p>
+<div class="surTableau">
+    <p>Il y a <?= $requete->rowCount() ?> roles</p>
+    <a href="index.php?action=formRole">Ajoutez</a>
+</div>
 
 <table>
     <thead>

@@ -2,7 +2,10 @@
 ob_start();
 ?>
 
-<p>Il y a <?= $requete->rowCount() ?> realisateurs</p>
+<div class="surTableau">
+    <p>Il y a <?= $requete->rowCount() ?> realisateurs</p>
+    <a href="index.php?action=formRealisateur">Ajoutez</a>
+</div>
 
 <table>
     <thead>
