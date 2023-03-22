@@ -7,29 +7,6 @@ class CinemaController {
 
 
 
-    // Personne
-    
-
-    
-    public function formPersonne(){
-        require "view/formPersonne.php";
-    }
-
-
-
-    public function formulairePersonne(){
-        $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("
-            INSERT INTO  ()
-            VALUE ()
-        ");
-        $requete->execute();
-    }
-
-
-
-
-
     // Acteur
 
 
@@ -365,6 +342,27 @@ class CinemaController {
 
 
     public function formulaireCasting(){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+            INSERT INTO  ()
+            VALUE ()
+        ");
+        $requete->execute();
+    }
+
+
+
+     // Personne
+    
+
+    
+    public function formPersonne(){
+        require "view/formPersonne.php";
+    }
+
+
+
+    public function formulairePersonne(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             INSERT INTO  ()
