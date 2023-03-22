@@ -23,7 +23,7 @@ class CinemaController {
             GROUP BY a.id_acteur
             ORDER BY nbLa DESC , date ASC
         ");
-        require "view/listActeurs.php";
+        require "view/list/listActeurs.php";
     }
 
 
@@ -40,7 +40,7 @@ class CinemaController {
             WHERE a.id_acteur = :id
         ");
         $requete->execute(["id"=>$id]);
-        require "view/detailActeur.php";
+        require "view/detail/detailActeur.php";
     }
 
 
@@ -49,8 +49,8 @@ class CinemaController {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
         
-        ")
-        require "view/formActeur.php";
+        ");
+        require "view/form/formActeur.php";
     }
 
 
@@ -83,7 +83,7 @@ class CinemaController {
             INNER JOIN personne p ON r.id_personne = p.id_personne
             ORDER BY sortie
         ");
-        require "view/listFilms.php";
+        require "view/list/listFilms.php";
     }
 
 
@@ -110,7 +110,7 @@ class CinemaController {
             WHERE f.id_film = :id
         ");
         $castings->execute(["id"=>$id]);
-        require "view/detailFilm.php";
+        require "view/detail/detailFilm.php";
     }
 
 
@@ -119,8 +119,8 @@ class CinemaController {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
         
-        ")
-        require "view/formFilm.php";
+        ");
+        require "view/form/formFilm.php";
     }
 
 
@@ -157,7 +157,7 @@ class CinemaController {
             INNER JOIN genre ge ON ger.id_genre = ge.id_genre
             GROUP BY ge.id_genre
         ");
-        require "view/listGenres.php";
+        require "view/list/listGenres.php";
     }
 
 
@@ -172,13 +172,13 @@ class CinemaController {
             WHERE ge.id_genre = :id
         ");
         $requete->execute(["id"=>$id]);
-        require "view/detailGenre.php";
+        require "view/detail/detailGenre.php";
     }
 
 
 
     public function formGenre(){
-        require "view/formGenre.php";
+        require "view/form/formGenre.php";
     }
 
 
@@ -212,7 +212,7 @@ class CinemaController {
         GROUP BY r.id_realisateur
         ORDER BY nbLa DESC 
         ");
-        require "view/listRealisateurs.php";
+        require "view/list/listRealisateurs.php";
     }
 
 
@@ -228,7 +228,7 @@ class CinemaController {
             ORDER BY f.date_sortie_film
         ");
         $requete->execute(["id"=>$id]);
-        require "view/detailRealisateur.php";
+        require "view/detail/detailRealisateur.php";
     }
 
 
@@ -238,8 +238,8 @@ class CinemaController {
         $requete = $pdo->prepare("
             SELECT
             FROM
-        ")
-        require "view/formRealisateur.php";
+        ");
+        require "view/form/formRealisateur.php";
     }
 
 
@@ -272,7 +272,7 @@ class CinemaController {
             GROUP BY r.id_role
             ORDER BY nbLa DESC , r.nom_role ASC
         ");
-        require "view/listRoles.php";
+        require "view/list/listRoles.php";
     }
 
 
@@ -289,13 +289,13 @@ class CinemaController {
             WHERE r.id_role = :id
         ");
         $requete->execute(["id"=>$id]);
-        require "view/detailRole.php";
+        require "view/detail/detailRole.php";
     }
 
 
 
     public function formRole(){
-        require "view/formRole.php";
+        require "view/form/formRole.php";
     }
 
 
@@ -322,7 +322,7 @@ class CinemaController {
     // hub formulaire
 
     public function formGroup(){
-        require "view/formGroup.php";
+        require "view/form/formGroup.php";
     }
 
 
@@ -335,8 +335,8 @@ class CinemaController {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
         
-        ")
-        require "view/formCasting.php";
+        ");
+        require "view/form/formCasting.php";
     }
 
 
@@ -357,7 +357,7 @@ class CinemaController {
 
     
     public function formPersonne(){
-        require "view/formPersonne.php";
+        require "view/form/formPersonne.php";
     }
 
 
