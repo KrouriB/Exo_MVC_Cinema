@@ -2,6 +2,8 @@
 ob_start();
 ?>
 
+<a href="index.php?action=formRealisateur">Ajoutez un Realisateur</a>
+
 <?php
 $titre = "";
 $titre_secondaire = "";
