@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h2>Cinélan</h2>
+        <a href="index.php?action=formAll"><img src="./www/img/cinelan.webp" alt=""><h2>Cinélan</h2></a>
         <nav id="topbar">
             <ul>
                 <li><a href="index.php?action=listFilms">Films</a></li>

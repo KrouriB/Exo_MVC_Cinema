@@ -23,6 +23,7 @@ if(isset($_GET["action"])){
         case "detFilms" : $ctrlCinema->detFilms($_GET['id']); break;
         case "detRoles" : $ctrlCinema->detRoles($_GET['id']); break;
         case "detGenres" : $ctrlCinema->detGenres($_GET['id']); break;
+        case "formAll" : $ctrlCinema->allForm();break;
     }
 }else {
     $ctrlCinema->listFilms();

@@ -152,4 +152,8 @@ class CinemaController {
         require "view/detailGenre.php";
     }
 
+    public function allForm(){
+        require "view/formGroup.php";
+    }
+
 }
