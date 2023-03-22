@@ -1,5 +1,6 @@
 <?php
 ob_start();
+$realisateurs = $requete->fetchAll();
 ?>
 
 <form action="index.php?action=addFilm" method="post" enctype="multipart/form-data">
