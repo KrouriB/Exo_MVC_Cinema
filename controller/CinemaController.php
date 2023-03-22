@@ -152,8 +152,38 @@ class CinemaController {
         require "view/detailGenre.php";
     }
 
-    public function allForm(){
+    // Commande formulaire
+
+    public function formGroup(){
         require "view/formGroup.php";
+    }
+
+    public function formActeur(){
+        require "view/formActeur.php";
+    }
+
+    public function formCasting(){
+        require "view/formCasting.php";
+    }
+
+    public function formFilm(){
+        require "view/formFilm.php";
+    }
+
+    public function formGenre(){
+        require "view/formGenre.php";
+    }
+
+    public function formPersonne(){
+        require "view/formPersonne.php";
+    }
+
+    public function formRealisateur(){
+        require "view/formRealisateur.php";
+    }
+
+    public function formRole(){
+        require "view/formRole.php";
     }
 
 }

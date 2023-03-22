@@ -23,7 +23,14 @@ if(isset($_GET["action"])){
         case "detFilms" : $ctrlCinema->detFilms($_GET['id']); break;
         case "detRoles" : $ctrlCinema->detRoles($_GET['id']); break;
         case "detGenres" : $ctrlCinema->detGenres($_GET['id']); break;
-        case "formAll" : $ctrlCinema->allForm();break;
+        case "formGroup" : $ctrlCinema->formGroup();break;
+        case "formActeur" : $ctrlCinema->formActeur();break;
+        case "formCasting" : $ctrlCinema->formCasting();break;
+        case "formFilm" : $ctrlCinema->formFilm();break;
+        case "formGenre" : $ctrlCinema->formGenre();break;
+        case "formPersonne" : $ctrlCinema->formPersonne();break;
+        case "formRealisateur" : $ctrlCinema->formRealisateur();break;
+        case "formRole" : $ctrlCinema->formRole();break;
     }
 }else {
     $ctrlCinema->listFilms();
