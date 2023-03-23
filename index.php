@@ -53,7 +53,7 @@ if(isset($_GET["action"])){
                     $ctrlCinema->formulaireGenre($genre);
                 }
             }
-            header("Location:index.php");
+            header("Location:index.php?action=formGenre");
             break;
         case "addPersonne" :
             if(isset($_POST['submitPersonne'])){
@@ -63,12 +63,19 @@ if(isset($_GET["action"])){
                     $ctrlCinema->formulairePersonne(strtoupper($nom),ucwords($prenom));
                 }
             }
-            header("Location:index.php");
+            header("Location:index.php?action=formPersonne");
             break;
         case "addRealisateur" :
             if(isset($_POST['submitRealisateur'])){
-                $ctrlCinema->formulaireRealisateur();
+                $real = $_POST['personne'];
+                if($real >= 1){
+                    $ctrlCinema->formulaireRealisateur($real);
+                }
+                else{
+
+                }
             }
+            header("Location:index.php?action=formRealisateur");
             break;
         case "addRole" :
             if(isset($_POST['submitRole'])){
@@ -77,7 +84,7 @@ if(isset($_GET["action"])){
                     $ctrlCinema->formulaireRole($role);
                 }
             }
-            header("Location:index.php");
+            header("Location:index.php?action=formRole");
             break;
     }
 }else {
