@@ -14,8 +14,8 @@ $personnes = $requete->fetchAll();
         </select>
     </div>
     <div>
-        <label for="date_naissance_acteur">Donnez la date de naissance de l'acteur :</label>
-        <input type="date" id="date_naissance_acteur" name="date_naissance_acteur">
+        <label for="naissance">Donnez la date de naissance de l'acteur :</label>
+        <input type="date" id="naissance" name="naissance">
     </div>
     <div>
         <label for="personne">Selectionner une Personne en tant que Acteur :</label>
