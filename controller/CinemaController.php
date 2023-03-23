@@ -255,13 +255,13 @@ class CinemaController {
 
 
 
-    public function formulaireRealisateur(){
+    public function formulaireRealisateur($id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            INSERT INTO  ()
-            VALUE ()
+            INSERT INTO realisateur (id_personne)
+            VALUE (:id)
         ");
-        $requete->execute();
+        $requete->execute(["id" => $id]);
     }
 
 
