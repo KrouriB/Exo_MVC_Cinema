@@ -8,8 +8,8 @@ $films = $requete3->fetchAll();
 <form action="index.php?action=addCasting" method="post">
     
     <div>
-        <label for="selectActeur">Selectionner un Acteur :</label>
-        <select name="id_acteur" id="selectActeur">
+        <label for="acteur">Selectionner un Acteur :</label>
+        <select name="acteur" id="acteur">
             <option value="">--Veuillez selcetionner une option--</option>
             <?php
             foreach($acteurs as $acteur){
@@ -21,8 +21,8 @@ $films = $requete3->fetchAll();
         </select>
     </div>
     <div>
-        <label for="selectRole">Selectionner un Role :</label>
-        <select name="id_role" id="selectRole">
+        <label for="role">Selectionner un Role :</label>
+        <select name="role" id="role">
             <option value="">--Veuillez selcetionner une option--</option>
             <?php
             foreach($roles as $role){
@@ -34,8 +34,8 @@ $films = $requete3->fetchAll();
         </select>
     </div>
     <div>
-        <label for="selectFilm">Selectionner un Film :</label>
-        <select name="id_film" id="selectFilm">
+        <label for="film">Selectionner un Film :</label>
+        <select name="film" id="film">
             <option value="">--Veuillez selcetionner une option--</option>
             <?php
             foreach($films as $film){

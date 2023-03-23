@@ -7,28 +7,28 @@ $genres = $requete2->fetchAll();
 <form action="index.php?action=addFilm" method="post" enctype="multipart/form-data">
 
     <div>
-        <label for="titre_film">Donnez le nom du film :</label>
-        <input type="text" name="titre_film" id="titre_film">
+        <label for="titre">Donnez le nom du film :</label>
+        <input type="text" name="titre" id="titre">
     </div>
     <div>
-        <label for="date_film">Donnez la date de sortie du film :</label>
-        <input type="date" id="date_film" name="date_sortie_film">
+        <label for="dateFilm">Donnez la date de sortie du film :</label>
+        <input type="date" id="dateFilm" name="dateFilm">
     </div>
     <div>
-        <label for="temps_min_film">Donnez le temps en minute du film :</label>
-        <input type="number" name="temps_min_film" id="temps_min_film" min="1" value="1" step="1">
+        <label for="temps">Donnez le temps en minute du film :</label>
+        <input type="number" name="temps" id="temps" min="1" value="1" step="1">
     </div>
     <div>
-        <label for="note_film">Veuiller notez le film (optionel) :</label>
-        <input type="number" name="note_film" id="note_film" step="1" min="0" max="5">
+        <label for="note">Veuiller notez le film (optionel) :</label>
+        <input type="number" name="note" id="note" step="1" min="0" max="5">
     </div>
     <div>
-        <label for="image_film">Veuillez selcetionner une image (optionel) :</label>
-        <input type="file" name="image_film" id="image_film">
+        <label for="image">Veuillez selcetionner une image (optionel) :</label>
+        <input type="file" name="image" id="image">
     </div>
     <div>
-        <label for="selectReal">Selectionner un Réalisateur :</label>
-        <select name="id_personne" id="selectReal">
+        <label for="personne">Selectionner un Réalisateur :</label>
+        <select name="personne" id="personne">
             <option value="">--Veuillez selcetionner une option--</option>
             <?php
             foreach($realisateurs as $realisateur){
@@ -51,8 +51,8 @@ $genres = $requete2->fetchAll();
         ?>
     </fieldset>
     <div>
-        <label for="resume_film">Resumez le film (optionel) :</label>
-        <textarea name="resume_film" id="resume_film" cols="30" rows="10"></textarea>
+        <label for="resume">Resumez le film (optionel) :</label>
+        <textarea name="resume" id="resume" cols="30" rows="10"></textarea>
     </div>
     <input type="submit" value="Ajoutez" name="submitFilm">
 
