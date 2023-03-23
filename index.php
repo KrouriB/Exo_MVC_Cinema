@@ -55,13 +55,13 @@ if(isset($_GET["action"])){
                 $titre =  filter_input(INPUT_POST, "titre", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
                 $dateFilm =  filter_input(INPUT_POST, "dateFilm", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
                 $temps = filter_input(INPUT_POST, "dateFilmtemps", FILTER_SANITIZE_NUMBER_INT) ;
-                $note = ($empty($_POST['note'])) NULL : filter_input(INPUT_POST, "note", FILTER_SANITIZE_NUMBER_INT) ;
-                $image = ($empty($_POST[''])) NULL :  ; filter_input(INPUT_POST, "image", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
+                $note = (empty($_POST['note'])) ? 'NULL' : filter_input(INPUT_POST, "note", FILTER_SANITIZE_NUMBER_INT) ;
+                // $image = (empty($_POST[''])) ? 'NULL' : filter_input(INPUT_POST, "image", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ; regarder ma 1er appli PHP
                 $realisateur = $_POST['personne'];
-                $genre = 0;
-                $resume = ($empty($_POST[''])) NULL : filter_input(INPUT_POST, "resume", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
-                if(){
-                    $ctrlCinema->formulaireFilm();
+                $genre = $_POST['genre'];
+                $resume = (empty($_POST[''])) ? 'NULL' : filter_input(INPUT_POST, "resume", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
+                if($titre && $dateFilm && ($temps !== false && $temps != null) && $realisateur >= 0 && ($genre !== false && $genre != null)){
+                    $ctrlCinema->formulaireFilm($titre,$dateFilm,$temps,$resume,$note,$image,$realisateur,$genre);
                 }
                 else{
                     
