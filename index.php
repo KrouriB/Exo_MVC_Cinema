@@ -72,8 +72,12 @@ if(isset($_GET["action"])){
             break;
         case "addRole" :
             if(isset($_POST['submitRole'])){
-                $ctrlCinema->formulaireRole();
+                $role = filter_input(INPUT_POST, "role", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                if($role){
+                    $ctrlCinema->formulaireRole($role);
+                }
             }
+            header("Location:index.php");
             break;
     }
 }else {
