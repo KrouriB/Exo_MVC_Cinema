@@ -37,7 +37,7 @@ if(isset($_GET["action"])){
                 $naissance = filter_input(INPUT_POST, "naissance", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $acteur = $_POST['personne'];
                 if($sexe != 0 && $naissance && $acteur >= 0){
-                    $ctrlCinema->formulaireActeur();
+                    $ctrlCinema->formulaireActeur($sexe,$naissance,$acteur);
                 }
                 else{
 
