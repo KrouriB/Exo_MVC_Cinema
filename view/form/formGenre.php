@@ -3,8 +3,10 @@ ob_start();
 ?>
 
 <form action="index.php?action=addGenre" method="post">
-    <label for="libelle_genre">Nom du genre :</label>
-    <input type="text" name="libelle_genre">
+    <div>
+        <label for="libelle_genre">Nom du genre :</label>
+        <input type="text" name="libelle_genre">
+    </div>
     <input type="submit" value="Ajoutez" name="submitGenre">
 </form>
 
