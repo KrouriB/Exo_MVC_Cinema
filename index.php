@@ -48,8 +48,12 @@ if(isset($_GET["action"])){
             break;
         case "addGenre" :
             if(isset($_POST['submitGenre'])){
-                $ctrlCinema->formulaireGenre();
+                $genre = filter_input(INPUT_POST, "genre", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                if($genre){ 
+                    $ctrlCinema->formulaireGenre($genre);
+                }
             }
+            header("Location:index.php");
             break;
         case "addPersonne" :
             if(isset($_POST['submitPersonne'])){
