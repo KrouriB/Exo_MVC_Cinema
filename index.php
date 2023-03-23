@@ -52,7 +52,20 @@ if(isset($_GET["action"])){
             break;
         case "addFilm" :
             if(isset($_POST['submitFilm'])){
-                $ctrlCinema->formulaireFilm();
+                $titre =  filter_input(INPUT_POST, "titre", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
+                $dateFilm =  filter_input(INPUT_POST, "dateFilm", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
+                $temps = filter_input(INPUT_POST, "dateFilmtemps", FILTER_SANITIZE_NUMBER_INT) ;
+                $note = ($empty($_POST['note'])) NULL : filter_input(INPUT_POST, "note", FILTER_SANITIZE_NUMBER_INT) ;
+                $image = ($empty($_POST[''])) NULL :  ; filter_input(INPUT_POST, "image", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
+                $realisateur = $_POST['personne'];
+                $genre = 0;
+                $resume = ($empty($_POST[''])) NULL : filter_input(INPUT_POST, "resume", FILTER_SANITIZE_FULL_SPECIAL_CHARS) ;
+                if(){
+                    $ctrlCinema->formulaireFilm();
+                }
+                else{
+                    
+                }
             }
             break;
         case "addGenre" :
@@ -60,6 +73,9 @@ if(isset($_GET["action"])){
                 $genre = filter_input(INPUT_POST, "genre", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 if($genre){ 
                     $ctrlCinema->formulaireGenre($genre);
+                }
+                else{
+                    
                 }
             }
             header("Location:index.php?action=formGenre");
@@ -70,6 +86,9 @@ if(isset($_GET["action"])){
                 $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 if($nom && $prenom){
                     $ctrlCinema->formulairePersonne(strtoupper($nom),ucwords($prenom));
+                }
+                else{
+                    
                 }
             }
             header("Location:index.php?action=formPersonne");
@@ -91,6 +110,9 @@ if(isset($_GET["action"])){
                 $role = filter_input(INPUT_POST, "role", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 if($role){
                     $ctrlCinema->formulaireRole($role);
+                }
+                else{
+
                 }
             }
             header("Location:index.php?action=formRole");
