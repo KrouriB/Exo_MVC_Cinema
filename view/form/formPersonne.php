@@ -1,5 +1,5 @@
 <?php
-ob_start();
+    ob_start();
 ?>
 
 <form action="index.php?action=addPersonne" method="post">
@@ -16,8 +16,8 @@ ob_start();
 
 
 <?php
-$titre = "Formulaire Personne";
-$titre_secondaire = "Ajoutez une Personne :";
-$contenu = ob_get_clean();
-require "view/template.php";
+    $titre = "Formulaire Personne";
+    $titre_secondaire = "Ajoutez une Personne :";
+    $contenu = ob_get_clean();
+    require "view/template.php";
 ?>
