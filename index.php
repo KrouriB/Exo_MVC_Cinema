@@ -31,13 +31,46 @@ if(isset($_GET["action"])){
         case "formPersonne" : $ctrlCinema->formPersonne();break;
         case "formRealisateur" : $ctrlCinema->formRealisateur();break;
         case "formRole" : $ctrlCinema->formRole();break;
-        case "addActeur" :if(isset($_POST['submitActeur'])){$ctrlCinema->formulaireActeur();}break;
-        case "addCasting" :if(isset($_POST['submitCasting'])){$ctrlCinema->formulaireCasting();}break;
-        case "addFilm" :if(isset($_POST['submitFilm'])){$ctrlCinema->formulaireFilm();}break;
-        case "addGenre" :if(isset($_POST['submitGenre'])){$ctrlCinema->formulaireGenre();}break;
-        case "addPersonne" :if(isset($_POST['submitPersonne'])){$ctrlCinema->formulairePersonne();}break;
-        case "addRealisateur" :if(isset($_POST['submitRealisateur'])){$ctrlCinema->formulaireRealisateur();}break;
-        case "addRole" :if(isset($_POST['submitRole'])){$ctrlCinema->formulaireRole();}break;
+        case "addActeur" :
+            if(isset($_POST['submitActeur'])){
+                $ctrlCinema->formulaireActeur();
+            }
+            break;
+        case "addCasting" :
+            if(isset($_POST['submitCasting'])){
+                $ctrlCinema->formulaireCasting();
+            }
+            break;
+        case "addFilm" :
+            if(isset($_POST['submitFilm'])){
+                $ctrlCinema->formulaireFilm();
+            }
+            break;
+        case "addGenre" :
+            if(isset($_POST['submitGenre'])){
+                $ctrlCinema->formulaireGenre();
+            }
+            break;
+        case "addPersonne" :
+            if(isset($_POST['submitPersonne'])){
+                $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                if($nom && $prenom){
+                    $ctrlCinema->formulairePersonne(strtoupper($nom),ucwords($prenom));
+                }
+            }
+            header("Location:index.php");
+            break;
+        case "addRealisateur" :
+            if(isset($_POST['submitRealisateur'])){
+                $ctrlCinema->formulaireRealisateur();
+            }
+            break;
+        case "addRole" :
+            if(isset($_POST['submitRole'])){
+                $ctrlCinema->formulaireRole();
+            }
+            break;
     }
 }else {
     $ctrlCinema->formGroup();
