@@ -1,6 +1,7 @@
 <?php
 ob_start();
-$realisateurs = $requete->fetchAll();
+$realisateurs = $requete1->fetchAll();
+$genres = $requete2->fetchAll();
 ?>
 
 <form action="index.php?action=addFilm" method="post" enctype="multipart/form-data">
@@ -14,7 +15,7 @@ $realisateurs = $requete->fetchAll();
     <label for="resume_film">Resumez le film (optionel) :</label>
     <textarea name="resume_film" id="resume_film" cols="30" rows="10"></textarea>
     <label for="note_film">Veuiller notez le film (optionel) :</label>
-    <input type="number" name="note_film" id="note_film" step="1" min="0" max="1">
+    <input type="number" name="note_film" id="note_film" step="1" min="0" max="5">
     <label for="image_film">Veuillez selcetionner une image (optionel) :</label>
     <input type="file" name="image_film" id="image_film">
     <label for="selectReal">Selectionner un Réalisateur :</label>
@@ -29,6 +30,17 @@ $realisateurs = $requete->fetchAll();
         ?>
     </select>
     <input type="submit" value="Ajoutez" name="submitFilm">
+    <fieldset>
+        <legend></legend>
+        <?php
+    foreach($genres as $genre){
+        ?>
+        <label for="<?= $genre['libelle_genre'] ?>"><?= $genre['libelle_genre'] ?></label>
+        <input type="checkbox" name="genre" id="<?= $genre['libelle_genre'] ?>" value="<?= $genre['id'] ?>">
+        <?php
+    }
+    ?>
+    </fieldset>
 </form>
 
 <a href="index.php?action=formRealisateur">Ajoutez un Realisateur</a>
