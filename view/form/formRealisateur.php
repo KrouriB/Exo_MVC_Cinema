@@ -5,9 +5,9 @@ $personnes = $requete->fetchAll();
 
 <form action="index.php?action=addRealisateur" method="post">
     <div>
-        <label for="selectReal">Selectionner une Personne en tant que Réalisateur :</label>
-        <select name="id_personne" id="selectReal">
-            <option value="">--Veuillez selcetionner une option--</option>
+        <label for="personne">Selectionner une Personne en tant que Réalisateur :</label>
+        <select name="personne" id="personne">
+            <option value="0">--Veuillez selcetionner une option--</option>
             <?php
             foreach($personnes as $personne){
                 ?>

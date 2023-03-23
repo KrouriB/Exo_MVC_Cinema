@@ -20,7 +20,7 @@ $personnes = $requete->fetchAll();
     <div>
         <label for="selectReal">Selectionner une Personne en tant que Acteur :</label>
         <select name="id_personne" id="selectReal">
-            <option value="">--Veuillez selcetionner une option--</option>
+            <option value="0">--Veuillez selcetionner une option--</option>
             <?php
             foreach($personnes as $personne){
                 ?>
