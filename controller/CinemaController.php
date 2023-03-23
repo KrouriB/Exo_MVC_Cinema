@@ -311,13 +311,13 @@ class CinemaController {
 
 
 
-    public function formulaireRole(){
+    public function formulaireRole($nom){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            INSERT INTO  ()
-            VALUE ()
+            INSERT INTO role (nom_role)
+            VALUE (:nom)
         ");
-        $requete->execute();
+        $requete->execute(["nom" => $nom]);
     }
     
     
