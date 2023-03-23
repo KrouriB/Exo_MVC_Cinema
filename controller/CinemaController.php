@@ -193,13 +193,13 @@ class CinemaController {
 
 
 
-    public function formulaireGenre(){
+    public function formulaireGenre($nom){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            INSERT INTO  ()
-            VALUE ()
+            INSERT INTO genre (libelle_genre)
+            VALUE (:nom)
         ");
-        $requete->execute();
+        $requete->execute(["nom" => $nom]);
     }
 
 
