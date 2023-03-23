@@ -119,10 +119,17 @@ class CinemaController {
 
     public function formFilm(){
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("
-        
+        $requete1 = $pdo->prepare("
+            SELECT id_realisateur AS id , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal
+            FROM realisateur r
+            INNER JOIN personne p ON r.id_personne = p.id_personne
         ");
-        $requete->execute();
+        $requete1->execute();
+        $requete2 = $pdo->prepare("
+            SELECT id_genre AS id , libelle_genre
+            FROM genre
+        ");
+        $requete2->execute();
         require "view/form/formFilm.php";
     }
 
@@ -337,10 +344,22 @@ class CinemaController {
     
     public function formCasting(){
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("
-        
+        $requete1 = $pdo->prepare("
+            SELECT a.id_acteur AS idActeur , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur
+            FROM acteur a
+            INNER JOIN personne p ON a.id_personne = p.id_personne
         ");
-        $requete->execute();
+        $requete1->execute();
+        $requete2 = $pdo->prepare("
+            SELECT r.id_role AS idRole , r.nom_role AS nomRole
+            FROM role r
+        ");
+        $requete2->execute();
+        $requete3 = $pdo->prepare("
+            SELECT f.id_film AS idFilm , f.titre_film AS nomFilm
+            FROM film f
+        ");
+        $requete3->execute();
         require "view/form/formCasting.php";
     }
 
