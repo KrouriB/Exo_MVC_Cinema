@@ -33,8 +33,17 @@ if(isset($_GET["action"])){
         case "formRole" : $ctrlCinema->formRole();break;
         case "addActeur" :
             if(isset($_POST['submitActeur'])){
-                $ctrlCinema->formulaireActeur();
+                $sexe = $_POST['sexe'];
+                $naissance = filter_input(INPUT_POST, "naissance", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $acteur = $_POST['personne'];
+                if($sexe != 0 && $naissance && $acteur >= 0){
+                    $ctrlCinema->formulaireActeur();
+                }
+                else{
+
+                }
             }
+            header("Location:index.php?action=formActeur");
             break;
         case "addCasting" :
             if(isset($_POST['submitCasting'])){
