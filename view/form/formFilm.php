@@ -45,7 +45,7 @@ $genres = $requete2->fetchAll();
         foreach($genres as $genre){
             ?>
         <label for="<?= $genre['libelle_genre'] ?>"><?= $genre['libelle_genre'] ?></label>
-        <input type="checkbox" name="genre" id="<?= $genre['libelle_genre'] ?>" value="<?= $genre['id'] ?>">
+        <input type="checkbox" name="genre[]" id="<?= $genre['libelle_genre'] ?>" value="<?= $genre['id'] ?>">
         <?php
         }
         ?>
