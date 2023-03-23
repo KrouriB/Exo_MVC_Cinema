@@ -57,13 +57,17 @@ class CinemaController {
 
 
 
-    public function formulaireActeur(){
+    public function formulaireActeur($sexe,$date,$id){
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            INSERT INTO  ()
-            VALUE ()
+            INSERT INTO acteur (sexe,date_naissance_acteur,id_personne)
+            VALUE (:sexe,:date,:id)
         ");
-        $requete->execute();
+        $requete->execute([
+            "sexe" => $sexe ,
+            "date" => $date ,
+            "id" => $id
+        ]);
     }
 
 
