@@ -139,18 +139,35 @@ class CinemaController {
 
 
 
-    public function formulaireFilm(){
+    public function formulaireFilm($titre,$sortie,$temps,$resume,$note,$image,$id,$genres){
         $pdo = Connect::seConnecter();
         $requete1 = $pdo->prepare("
-            INSERT INTO  ()
-            VALUE ()
+            INSERT INTO film (titre_film,date_sortie_film,temps_min_film,resume_film,note_film,image_film,id_realisateur)
+            VALUE (:titre,:sortie,:temps,:resume,:note,:image,:id)
         ");
-        $requete1->execute();
-        $requete2 = $pdo->prepare("
-        INSERT INTO  ()
-        VALUE ()
-        ");
-        $requete2->execute();
+        $requete1->execute([
+            "titre" => $titre,
+            "sortie" => $sortie,
+            "temps" => $temps,
+            "resume" => $resume,
+            "note" => $note,
+            "image" => $image,
+            "id" => $id
+        ]);
+
+        //TODO: foreach de chaque genre a lié au film
+        
+        foreach($genres as $genre){
+            $requete2 = $pdo->prepare("
+                INSERT INTO genrer (id_genre,id_film)
+                VALUE (:genre,:film)
+            ");
+            $requete2->execute([
+                "genre" => $genre,
+                "film" => // l'id du film //
+            ]);
+        }
+
     }
 
 
