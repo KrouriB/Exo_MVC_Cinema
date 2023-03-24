@@ -72,13 +72,24 @@ if (isset($_GET["action"])) {
                 $sexe = $_POST['sexe'];
                 $naissance = filter_input(INPUT_POST, "naissance", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $acteur = $_POST['personne'];
+                if ($sexe && $acteur && $naissance) {
+                    $ctrlCinema->formulaireActeur($sexe, $naissance, $acteur);
+                }
+            } else {
             }
             header("Location:index.php?action=formActeur");
             break;
         case "addCasting":
             if (isset($_POST['submitCasting'])) {
-                $ctrlCinema->formulaireCasting();
+                $acteur = $_POST['acteur'];
+                $role = $_POST['role'];
+                $film = $_POST['film'];
+                if ($acteur && $role && $film) {
+                    $ctrlCinema->formulaireCasting($film, $acteur, $role);
+                } else {
+                }
             }
+            header("Location:index.php?action=formCasting");
             break;
         case "addFilm":
             if (isset($_POST['submitFilm'])) {
