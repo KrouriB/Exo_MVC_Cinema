@@ -1,9 +1,11 @@
 <?php
 
 namespace Controller;
+
 use Model\Connect;
 
-class CinemaController {
+class CinemaController
+{
 
 
 
@@ -13,7 +15,8 @@ class CinemaController {
 
 
 
-    public function listActeurs(){
+    public function listActeurs()
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur ,a.sexe ,a.date_naissance_acteur AS date , COUNT(c.id_acteur) AS nbLa ,a.id_acteur AS id
@@ -28,7 +31,8 @@ class CinemaController {
 
 
 
-    public function detActeurs($id){
+    public function detActeurs($id)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur ,  DATE_FORMAT(a.date_naissance_acteur, '%d/%m/%Y' ) AS laDate
@@ -39,13 +43,14 @@ class CinemaController {
             INNER JOIN role r ON c.id_role = r.id_role
             WHERE a.id_acteur = :id
         ");
-        $requete->execute(["id"=>$id]);
+        $requete->execute(["id" => $id]);
         require "view/detail/detailActeur.php";
     }
 
 
 
-    public function formActeur(){
+    public function formActeur()
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT p.id_personne AS id , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomPerso
@@ -57,15 +62,16 @@ class CinemaController {
 
 
 
-    public function formulaireActeur($sexe,$date,$id){
+    public function formulaireActeur($sexe, $date, $id)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             INSERT INTO acteur (sexe,date_naissance_acteur,id_personne)
             VALUE (:sexe,:date,:id)
         ");
         $requete->execute([
-            "sexe" => $sexe ,
-            "date" => $date ,
+            "sexe" => $sexe,
+            "date" => $date,
             "id" => $id
         ]);
     }
@@ -80,7 +86,8 @@ class CinemaController {
 
 
 
-    public function listFilms() {
+    public function listFilms()
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT f.titre_film AS titre , YEAR(f.date_sortie_film) AS sortie , TIME_FORMAT(SEC_TO_TIME(f.temps_min_film*60), '%Hh%i') AS duree , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal , f.id_film AS unFilm , f.id_realisateur AS unReal
@@ -94,7 +101,8 @@ class CinemaController {
 
 
 
-    public function detFilms($id){
+    public function detFilms($id)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT *, CONCAT(pr.prenom_personne,' ',pr.nom_personne) AS nomReal , DATE_FORMAT(f.date_sortie_film, '%e/%m/%Y' ) AS laDate , TIME_FORMAT(SEC_TO_TIME(f.temps_min_film*60), '%Hh%i') AS duree
@@ -105,7 +113,7 @@ class CinemaController {
             LEFT JOIN genre ge ON ge.id_genre = ger.id_genre
             WHERE f.id_film = :id
         ");
-        $requete->execute(["id"=>$id]);
+        $requete->execute(["id" => $id]);
         $castings = $pdo->prepare("
             SELECT * ,CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur
             FROM casting c
@@ -115,13 +123,14 @@ class CinemaController {
             INNER JOIN personne p ON a.id_personne = p.id_personne
             WHERE f.id_film = :id
         ");
-        $castings->execute(["id"=>$id]);
+        $castings->execute(["id" => $id]);
         require "view/detail/detailFilm.php";
     }
 
 
 
-    public function formFilm(){
+    public function formFilm()
+    {
         $pdo = Connect::seConnecter();
         $requete1 = $pdo->prepare("
             SELECT id_realisateur AS id , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal
@@ -139,7 +148,8 @@ class CinemaController {
 
 
 
-    public function formulaireFilm($titre,$sortie,$temps,$resume,$note,$image,$id,$genres){
+    public function formulaireFilm($titre, $sortie, $temps, $resume, $note, $image, $id, $genres)
+    {
         $pdo = Connect::seConnecter();
         $requete1 = $pdo->prepare("
             INSERT INTO film (titre_film,date_sortie_film,temps_min_film,resume_film,note_film,image_film,id_realisateur)
@@ -154,20 +164,18 @@ class CinemaController {
             "image" => $image,
             "id" => $id
         ]);
+        $idFilm = $pdo->lastInsertId();
 
-        //TODO: foreach de chaque genre a lié au film
-        
-        foreach($genres as $genre){
+        foreach ($genres as $genre) {
             $requete2 = $pdo->prepare("
                 INSERT INTO genrer (id_genre,id_film)
                 VALUE (:genre,:film)
             ");
             $requete2->execute([
                 "genre" => $genre,
-                "film" => // l'id du film //
+                "film" => $idFilm // l'id du film récuperer avec lastInsertId()//
             ]);
         }
-
     }
 
 
@@ -180,7 +188,8 @@ class CinemaController {
 
 
 
-    public function listGenres(){
+    public function listGenres()
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT ge.libelle_genre , COUNT(ger.id_genre) AS nbLa  ,ger.id_genre AS unGenre
@@ -193,7 +202,8 @@ class CinemaController {
 
 
 
-    public function detGenres($id){
+    public function detGenres($id)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT * 
@@ -202,19 +212,21 @@ class CinemaController {
             INNER JOIN film f ON ger.id_film = f.id_film
             WHERE ge.id_genre = :id
         ");
-        $requete->execute(["id"=>$id]);
+        $requete->execute(["id" => $id]);
         require "view/detail/detailGenre.php";
     }
 
 
 
-    public function formGenre(){
+    public function formGenre()
+    {
         require "view/form/formGenre.php";
     }
 
 
 
-    public function formulaireGenre($nom){
+    public function formulaireGenre($nom)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             INSERT INTO genre (libelle_genre)
@@ -233,7 +245,8 @@ class CinemaController {
 
 
 
-    public function listReals(){
+    public function listReals()
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
         SELECT CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal , COUNT(f.id_realisateur) AS nbLa ,r.id_realisateur AS id
@@ -248,7 +261,8 @@ class CinemaController {
 
 
 
-    public function detReals($id){
+    public function detReals($id)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomReal , DATE_FORMAT(f.date_sortie_film, '%e/%m/%Y' ) AS laDate
@@ -258,13 +272,14 @@ class CinemaController {
             WHERE r.id_realisateur = :id
             ORDER BY f.date_sortie_film
         ");
-        $requete->execute(["id"=>$id]);
+        $requete->execute(["id" => $id]);
         require "view/detail/detailRealisateur.php";
     }
 
 
 
-    public function formRealisateur(){
+    public function formRealisateur()
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT p.id_personne AS id , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomPerso
@@ -276,7 +291,8 @@ class CinemaController {
 
 
 
-    public function formulaireRealisateur($id){
+    public function formulaireRealisateur($id)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             INSERT INTO realisateur (id_personne)
@@ -295,7 +311,8 @@ class CinemaController {
 
 
 
-    public function listRoles(){
+    public function listRoles()
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT r.nom_role , COUNT(c.id_role) AS nbLa ,r.id_role AS id
@@ -309,7 +326,8 @@ class CinemaController {
 
 
 
-    public function detRoles($id){
+    public function detRoles($id)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             SELECT *  , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur
@@ -320,19 +338,21 @@ class CinemaController {
             INNER JOIN personne p ON a.id_personne = p.id_personne
             WHERE r.id_role = :id
         ");
-        $requete->execute(["id"=>$id]);
+        $requete->execute(["id" => $id]);
         require "view/detail/detailRole.php";
     }
 
 
 
-    public function formRole(){
+    public function formRole()
+    {
         require "view/form/formRole.php";
     }
 
 
 
-    public function formulaireRole($nom){
+    public function formulaireRole($nom)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             INSERT INTO role (nom_role)
@@ -340,11 +360,11 @@ class CinemaController {
         ");
         $requete->execute(["nom" => $nom]);
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     // Partie Commande uniquement formulaire
 
 
@@ -353,17 +373,19 @@ class CinemaController {
 
     // Partie hub formulaire
 
-    public function formGroup(){
+    public function formGroup()
+    {
         require "view/form/formGroup.php";
     }
 
 
 
     // Partie Casting
-    
 
-    
-    public function formCasting(){
+
+
+    public function formCasting()
+    {
         $pdo = Connect::seConnecter();
         $requete1 = $pdo->prepare("
             SELECT a.id_acteur AS idActeur , CONCAT(p.prenom_personne,' ',p.nom_personne) AS nomActeur
@@ -386,7 +408,8 @@ class CinemaController {
 
 
 
-    public function formulaireCasting(){
+    public function formulaireCasting()
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             INSERT INTO  ()
@@ -397,17 +420,19 @@ class CinemaController {
 
 
 
-     // Partie Personne
-    
+    // Partie Personne
 
-    
-    public function formPersonne(){
+
+
+    public function formPersonne()
+    {
         require "view/form/formPersonne.php";
     }
 
 
 
-    public function formulairePersonne($unNom,$unPrenom){
+    public function formulairePersonne($unNom, $unPrenom)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
             INSERT INTO personne (nom_personne,prenom_personne)
@@ -418,6 +443,4 @@ class CinemaController {
             "unPrenom" => $unPrenom
         ]);
     }
-
-
 }
