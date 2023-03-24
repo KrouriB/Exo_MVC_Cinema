@@ -408,14 +408,18 @@ class CinemaController
 
 
 
-    public function formulaireCasting()
+    public function formulaireCasting($film, $acteur, $role)
     {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            INSERT INTO  ()
-            VALUE ()
+            INSERT INTO casting (id_film, id_acteur, id_role)
+            VALUE (:film, :acteur, :role)
         ");
-        $requete->execute();
+        $requete->execute([
+            "film" => $film,
+            "acteur" => $acteur,
+            "role" => $role
+        ]);
     }
 
 
