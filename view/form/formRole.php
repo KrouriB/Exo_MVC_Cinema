@@ -4,10 +4,14 @@ ob_start();
 
 <form action="index.php?action=addRole" method="post">
     <div>
-        <label for="role">Nom du role :</label>
-        <input type="text" name="role">
+        <div>
+            <label for="role">Nom du role :</label>
+            <input type="text" name="role">
+        </div>
     </div>
-    <input type="submit" value="Ajoutez" name="submitRole">
+    <div>
+        <input type="submit" value="Ajoutez" name="submitRole">
+    </div>
 </form>
 
 <?php

@@ -4,10 +4,14 @@
 
 <form action="index.php?action=addGenre" method="post">
     <div>
-        <label for="genre">Nom du genre :</label>
-        <input type="text" name="genre">
+        <div>
+            <label for="genre">Nom du genre :</label>
+            <input type="text" name="genre">
+        </div>
     </div>
-    <input type="submit" value="Ajoutez" name="submitGenre">
+    <div>
+        <input type="submit" value="Ajoutez" name="submitGenre">
+    </div>
 </form>
 
 <?php
