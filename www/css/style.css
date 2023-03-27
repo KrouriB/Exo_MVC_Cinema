@@ -48,6 +48,27 @@ header img{
     margin: 0 20px;
 }
 
+/* Le wrapper commun */
+
+#wrapper{
+    background-color: rgb(41, 41, 41);
+    color: white;
+    padding: 20px 40px;
+    font-family: basic-sans, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+#lecontenu{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+main{
+    margin: 2% 0;
+}
+
 /* footer */
 
 footer{
@@ -60,24 +81,6 @@ footer{
     font-family: tenby-six, sans-serif;
     font-style: normal;
     font-weight: 700;
-}
-
-/* Le wrapper commun */
-
-#wrapper{
-    background-color: rgb(41, 41, 41);
-    color: white;
-    padding: 20px 40px;
-    font-family: basic-sans, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-}
-
-
-#lecontenu{
-    display: flex;
-    flex-direction: column;
-    gap: 4vh;
 }
 
 /* listes */
@@ -180,6 +183,10 @@ td a{
     #droiteFilm{
         width: 100%;
     }
+
+    form > div > div{
+        flex-direction: column;
+    }
 }
 
 /* partie formulaire */
@@ -217,10 +224,13 @@ form > div{
 .divForm{
     display: flex;
     flex-wrap: wrap;
+    gap: 60px;
 }
 
 form > div > div{
     width: 25%;
+    min-width: 300px;
+    margin: 0 3%;
     display: flex;
 }
 
@@ -230,6 +240,7 @@ form > div > div > label{
 
 form > div > div > input{
     width: 100%;
+    min-width: 200px;
 }
 
 .divSubmit{
@@ -238,7 +249,38 @@ form > div > div > input{
     justify-content: center;
 }
 
+.divSubmit input{
+    width: 15%;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
 form > div > input{
     padding: 12px 0;
     width: 25%;
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset div{
+    padding: 12px 6px;
+}
+
+.lienPrecedent{
+    color: white;
+    background-color: darkgoldenrod;
+    padding: 4% 8%;
+    border-radius: 12px;
+    box-shadow: white 0 0 20px -10px;
+}
+
+.boutonPrecdent{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 10%;
+    text-align: center;
 }
