@@ -234,10 +234,6 @@ form > div > div{
     display: flex;
 }
 
-form > div > div > label{
-    /* padding-right: 12px; */
-}
-
 form > div > div > input{
     width: 100%;
     min-width: 200px;
