@@ -6,9 +6,9 @@ $films = $requete3->fetchAll();
 ?>
 
 <form action="index.php?action=addCasting" method="post">
-    <div>
+    <div class="divForm">
         <div>
-            <label for="acteur">Selectionner un Acteur :</label>
+            <label for="acteur">Selectionner&nbsp;un&nbsp;Acteur&nbsp;:&nbsp;</label>
             <select name="acteur" id="acteur">
                 <option value="">--Veuillez selcetionner une option--</option>
                 <?php
@@ -21,7 +21,7 @@ $films = $requete3->fetchAll();
             </select>
         </div>
         <div>
-            <label for="role">Selectionner un Role :</label>
+            <label for="role">Selectionner&nbsp;un&nbsp;Role&nbsp;:&nbsp;</label>
             <select name="role" id="role">
                 <option value="">--Veuillez selcetionner une option--</option>
                 <?php
@@ -34,7 +34,7 @@ $films = $requete3->fetchAll();
             </select>
         </div>
         <div>
-            <label for="film">Selectionner un Film :</label>
+            <label for="film">Selectionner&nbsp;un&nbsp;Film&nbsp;:&nbsp;</label>
             <select name="film" id="film">
                 <option value="">--Veuillez selcetionner une option--</option>
                 <?php
@@ -47,12 +47,12 @@ $films = $requete3->fetchAll();
             </select>
         </div>
     </div>
-    <div>
+    <div class="divSubmit">
         <input type="submit" value="Ajoutez" name="submitCasting">
     </div>
 </form>
 
-<div>
+<div class="boutonPrecdent">
     <a class="lienPrecedent" href="index.php?action=formActeur">Ajoutez un Acteur</a>
     <a class="lienPrecedent" href="index.php?action=formRole">Ajoutez un Role</a>
     <a class="lienPrecedent" href="index.php?action=formFilm">Ajoutez un Film</a>

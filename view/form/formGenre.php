@@ -3,13 +3,13 @@
 ?>
 
 <form action="index.php?action=addGenre" method="post">
-    <div>
+    <div class="divForm">
         <div>
-            <label for="genre">Nom du genre :</label>
+            <label for="genre">Nom&nbsp;du&nbsp;genre&nbsp;:&nbsp;</label>
             <input type="text" name="genre">
         </div>
     </div>
-    <div>
+    <div class="divSubmit">
         <input type="submit" value="Ajoutez" name="submitGenre">
     </div>
 </form>

@@ -5,11 +5,11 @@ ob_start();
 <form action="index.php?action=addPersonne" method="post">
     <div class="divForm">
         <div>
-            <label for="nom">Nom&nbsp;:</label>
+            <label for="nom">Nom&nbsp;:&nbsp;</label>
             <input type="text" name="nom">
         </div>
         <div>
-            <label for="prenom">Prénom&nbsp;:</label>
+            <label for="prenom">Prénom&nbsp;:&nbsp;</label>
             <input type="text" name="prenom">
         </div>
     </div>

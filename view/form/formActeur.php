@@ -4,9 +4,9 @@ $personnes = $requete->fetchAll();
 ?>
 
 <form action="index.php?action=addActeur" method="post">
-    <div>
+    <div class="divForm">
         <div>
-            <label for="sexe">Selectionner le Sexe de l'acteur :</label>
+            <label for="sexe">Selectionner&nbsp;le&nbsp;Sexe&nbsp;de&nbsp;l'acteur&nbsp;:&nbsp;</label>
             <select name="sexe" id="sexe">
                 <option value="0">--Veuillez selcetionner une option--</option>
                 <option value="Homme">Homme</option>
@@ -14,11 +14,11 @@ $personnes = $requete->fetchAll();
             </select>
         </div>
         <div>
-            <label for="naissance">Donnez la date de naissance de l'acteur :</label>
+            <label for="naissance">Donnez&nbsp;la&nbsp;date&nbsp;de&nbsp;naissance&nbsp;de&nbsp;l'acteur&nbsp;:&nbsp;</label>
             <input type="date" id="naissance" name="naissance">
         </div>
         <div>
-            <label for="personne">Selectionner une Personne en tant que Acteur :</label>
+            <label for="personne">Selectionner&nbsp;une&nbsp;Personne&nbsp;en&nbsp;tant&nbsp;que&nbsp;Acteur&nbsp;:&nbsp;</label>
             <select name="personne" id="personne">
                 <option value="0">--Veuillez selcetionner une option--</option>
                 <?php
@@ -31,12 +31,14 @@ $personnes = $requete->fetchAll();
             </select>
         </div>
     </div>
-    <div>
+    <div class="divSubmit">
         <input type="submit" value="Ajoutez" name="submitActeur">
     </div>
 </form>
 
-<a class="lienPrecedent" href="index.php?action=formPersonne">Ajoutez une Personne</a>
+<div class="boutonPrecdent">
+    <a class="lienPrecedent" href="index.php?action=formPersonne">Ajoutez une Personne</a>
+</div>
 
 <?php
 $titre = "Formulaire Acteur";
