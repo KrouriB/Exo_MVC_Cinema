@@ -57,6 +57,7 @@ header img{
     font-family: basic-sans, sans-serif;
     font-style: normal;
     font-weight: 400;
+    min-height: 75vh;
 }
 
 #lecontenu{
@@ -169,25 +170,6 @@ td a{
     margin-bottom: 10px;
 }
 
-@media (max-width:1440px){
-    #hautFilm{
-        flex-direction: column;
-    }
-    
-    #hautFilm figure{
-        width: 100%;
-        margin-right: 0px;
-        margin-bottom: 20px;
-    }
-
-    #droiteFilm{
-        width: 100%;
-    }
-
-    form > div > div{
-        flex-direction: column;
-    }
-}
 
 /* partie formulaire */
 
@@ -207,7 +189,6 @@ td a{
     border-radius: 20px;
     box-shadow: white 0 0 24px -6px;
 }
-
 
 /* les formulaire */
 
@@ -279,4 +260,40 @@ fieldset div{
     gap: 20px;
     width: 10%;
     text-align: center;
+}
+
+@media (max-width:1440px){
+    ul{
+        flex-wrap: wrap;
+    }
+
+    ul > li {
+        width: 100%;
+    }
+
+    ul li a{
+        justify-content: center;
+    }
+
+    #hautFilm{
+        flex-direction: column;
+    }
+    
+    #hautFilm figure{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+
+    #droiteFilm{
+        width: 100%;
+    }
+
+    form > div > div{
+        flex-direction: column;
+    }
+
+    #les7lien{
+        justify-content: space-evenly;
+    }
 }
