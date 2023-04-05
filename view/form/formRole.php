@@ -3,11 +3,15 @@ ob_start();
 ?>
 
 <form action="index.php?action=addRole" method="post">
-    <div>
-        <label for="role">Nom du role :</label>
-        <input type="text" name="role">
+    <div class="divForm">
+        <div>
+            <label for="role">Nom&nbsp;du&nbsp;role&nbsp;:&nbsp;</label>
+            <input type="text" name="role">
+        </div>
     </div>
-    <input type="submit" value="Ajoutez" name="submitRole">
+    <div class="divSubmit">
+        <input type="submit" value="Ajoutez" name="submitRole">
+    </div>
 </form>
 
 <?php
