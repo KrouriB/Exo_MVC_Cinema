@@ -12,7 +12,8 @@
 
 <body>
     <header>
-        <a href="index.php?action=formGroup"><img src="./www/img/cinelan.webp" alt="">
+        <a href="index.php?action=formGroup">
+            <img src="./www/img/cinelan.webp" alt="">
             <h2>Cinélan</h2>
         </a>
         <nav id="topbar">
